@@ -1,2 +1,2 @@
 # Ecotracker
-Aplicacion Movil, seguimiento de huella de carbono
+Aplicacion Movil, seguimiento de huella de carbono.
