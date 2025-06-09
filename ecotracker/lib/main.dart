@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
     initialRoute: '/',
     routes: {
       '/': (context) => const MyHomePage(title: 'EcoTracker'),
-      '/home': (context) => const HomeScreen(),
+      '/home': (context) => const Home(),
       },
     );
   }
