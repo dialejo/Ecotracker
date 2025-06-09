@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'screens/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'EcoTracker',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -30,7 +31,12 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+
+    initialRoute: '/',
+    routes: {
+      '/': (context) => const MyHomePage(title: 'EcoTracker'),
+      '/home': (context) => const HomeScreen(),
+      },
     );
   }
 }
@@ -66,6 +72,11 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter++;
     });
   }
+
+  void _goToHome() {
+    Navigator.pushNamed(context, '/home');
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -105,9 +116,11 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+            Text('$_counter', style: Theme.of(context).textTheme.headlineMedium),
+            const SizedBox(height: 30),
+            ElevatedButton(
+              onPressed: _goToHome,
+              child: const Text('Ir a Inicio'),
             ),
           ],
         ),
