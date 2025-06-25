@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'app_drawer.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -8,45 +9,43 @@ class DashboardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFE9F7F5),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _buildTopBar(),
-              const SizedBox(height: 20),
-              _buildGreeting(),
-              const SizedBox(height: 20),
-              _buildProgressCard(),
-              const SizedBox(height: 30),
-              const Text(
-                "Cosas que puedes hacer",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 15),
-              _buildActionGrid(context),
-            ],
+      drawer: const AppDrawer(), // aquí añadimos el drawer
+      body: Builder( // para que el context funcione dentro de _buildTopBar
+        builder: (context) => SafeArea(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _buildTopBar(context),
+                const SizedBox(height: 20),
+                _buildGreeting(),
+                const SizedBox(height: 20),
+                _buildProgressCard(),
+                const SizedBox(height: 30),
+                const Text(
+                  "Cosas que puedes hacer",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 15),
+                _buildActionGrid(context),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 
-  Widget _buildTopBar() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        const Icon(Icons.menu, size: 30),
-        CircleAvatar(
-          radius: 20,
-          backgroundImage: AssetImage(
-            'assets/user.png',
-          ), // Usa NetworkImage o placeholder si quieres
-        ),
-      ],
+  Widget _buildTopBar(BuildContext context) {
+    return IconButton(
+      icon: const Icon(Icons.menu, size: 30),
+      onPressed: () {
+        Scaffold.of(context).openDrawer();
+      },
     );
   }
+
 
   Widget _buildGreeting() {
     return const Column(

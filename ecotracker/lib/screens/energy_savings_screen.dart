@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'package:ecotracker/screens/app_drawer.dart';
 
 class EnergySavingsScreen extends StatefulWidget {
   @override
@@ -18,9 +19,19 @@ class _EnergySavingsScreenState extends State<EnergySavingsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.green.shade700,
+      drawer: const AppDrawer(),
       body: SafeArea(
         child: Column(
           children: [
+            Align(
+              alignment: Alignment.topLeft,
+              child: Builder(
+                builder: (context) => IconButton(
+                  icon: const Icon(Icons.menu),
+                  onPressed: () => Scaffold.of(context).openDrawer(),
+                ),
+              ),
+            ),
             _buildHeader(),
             Expanded(
               child: Container(

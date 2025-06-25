@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ecotracker/screens/app_drawer.dart';
 
 class ActivityScreen extends StatefulWidget {
   const ActivityScreen({super.key});
@@ -30,11 +31,21 @@ class _ActivityScreenState extends State<ActivityScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFE9F7F5),
+      drawer: const AppDrawer(),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(20),
           child: Column(
             children: [
+              Align(
+                alignment: Alignment.topLeft,
+                child: Builder(
+                  builder: (context) => IconButton(
+                    icon: const Icon(Icons.menu),
+                    onPressed: () => Scaffold.of(context).openDrawer(),
+                  ),
+                ),
+              ),
               _buildHeader(),
               const SizedBox(height: 20),
               _buildTransportSection(),
