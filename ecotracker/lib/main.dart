@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'screens/home.dart';
 import 'screens/activity_screen.dart';
 import 'screens/dashboard.dart';
+import 'screens/energy_savings_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,12 +20,13 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
 
-    initialRoute: '/home',
+      initialRoute: '/energy',
     routes: {
       '/': (context) => const MyHomePage(title: 'EcoTracker'),
       '/home': (context) => const Home(),
       '/activity': (context) => ActivityScreen(),
       '/dashboard': (context) => DashboardScreen(),
+      '/energy': (context) =>  EnergySavingsScreen(),
       },
     );
   }
