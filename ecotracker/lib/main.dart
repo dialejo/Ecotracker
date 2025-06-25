@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
 
-      initialRoute: '/energy',
+      initialRoute: '/home',
     routes: {
       '/': (context) => const MyHomePage(title: 'EcoTracker'),
       '/home': (context) => const Home(),

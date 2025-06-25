@@ -141,6 +141,7 @@ class DashboardScreen extends StatelessWidget {
         icon: Icons.lightbulb_outline,
         color: Colors.yellow.shade100,
         subtitle: '6 Devices',
+        route: '/energy',
       ),
       _ActionItem(
         label: 'Plantar Árbol',
