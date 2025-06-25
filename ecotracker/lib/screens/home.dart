@@ -72,7 +72,7 @@ class Home extends StatelessWidget {
                 const SizedBox(height: 30),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/activity');
+                    Navigator.pushNamed(context, '/dashboard');
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.redAccent,
